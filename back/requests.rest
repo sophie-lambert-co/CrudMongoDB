@@ -1,0 +1,344 @@
+POST http://localhost:3000/recettes/users
+Content-Type: application/json
+
+{
+  "name": "Billie Jean",
+  "password": "motdepasse",
+  "email": "billiejean@example.com"
+}
+
+###
+GET http://localhost:3000/recettes/users
+Content-Type: application/json
+
+###
+GET http://localhost:3000/recettes/users/658d8c66f8498697f03cfedf
+Content-Type: application/json
+
+###
+PUT http://localhost:3000/recettes/users/657854b2c137d58bd4ffcb38
+Content-Type: application/json
+
+{
+  "name": "Johnatan Doe",
+  "password": "password123",
+  "email": "johndoe@example.com"
+}
+
+###
+DELETE http://localhost:3000/recettes/users/657797050144726ae29b36dd
+Content-Type: application/json
+
+###
+POST http://localhost:3000/recettes/recipes
+Content-Type: application/json
+
+{
+  "title": "Poulet au Curry",
+  "description": "Recette de poulet délicieux avec une sauce au curry",
+  "ingredients": [
+    { "name": "Poulet", "quantity": "500g" },
+    { "name": "Lait de coco", "quantity": "400ml" },
+    { "name": "Oignon", "quantity": "1, haché" },
+    { "name": "Ail", "quantity": "2 gousses, émincées" },
+    { "name": "Gingembre", "quantity": "1 cuillère à café, râpé" },
+    { "name": "Curry en poudre", "quantity": "2 cuillères à soupe" },
+    { "name": "Sel", "quantity": "Selon le goût" },
+    { "name": "Poivre", "quantity": "Selon le goût" }
+  ],
+  "steps": [
+    "Faites revenir l'oignon, l'ail et le gingembre dans une poêle.",
+    "Ajoutez le poulet et faites-le dorer.",
+    "Versez le lait de coco, ajoutez le curry en poudre, le sel et le poivre.",
+    "Laissez mijoter pendant 20 minutes jusqu'à ce que le poulet soit bien cuit."
+  ],
+  "prepTime": 30,
+  "images": ["curry_chicken_image1.jpg", "curry_chicken_image2.jpg"],
+  "comments": [
+    { "user": "utilisateur_id", "text": "J'ai adoré cette recette !", "rating": 5 },
+    { "user": "autre_utilisateur_id", "text": "Facile à préparer et délicieux.", "rating": 4 }
+  ],
+  "category": "Plat Principal"
+}
+
+###
+GET http://localhost:3000/recettes/recipes
+Content-Type: application/json
+
+###
+GET http://localhost:3000/recettes/recipes/search?term=Poulet
+Content-Type: application/json
+
+
+###
+GET http://localhost:3000/recettes/recipes/657a297bfa8ae6753a397fe8
+Content-Type: application/json
+
+###
+PUT http://localhost:3000/recettes/recipes/657a297bfa8ae6753a397fe8
+Content-Type: application/json
+
+{
+ 
+    "comments": {
+      "createdAt": "2023-12-14T09:39:22.652Z"
+    },
+    "_id": "657a297bfa8ae6753a397fe8",
+    "title": "Spaghetti à la Bolognaise",
+    "description": "Plat de pâtes italien classique",
+    "ingredients": [
+      {
+        "ingredient": "657a297bfa8ae6753a397fdc",
+        "name": "spaghetti",
+        "quantity": "300g",
+        "_id": "657a297bfa8ae6753a397fe9"
+      },
+      {
+        "ingredient": "657a297bfa8ae6753a397fdd",
+        "name": "viande hachée",
+        "quantity": "200g",
+        "_id": "657a297bfa8ae6753a397fea"
+      }
+    ],
+    "steps": [
+      "Faites bouillir les spaghetti dans de l'eau salée jusqu'à ce qu'ils soient al dente.",
+      "Dans une poêle séparée, faites dorer la viande hachée.",
+      "Ajoutez la sauce tomate et laissez mijoter pendant 15 minutes."
+    ],
+    "prepTime": 30,
+    "images": [
+      "spaghetti_image1.jpg",
+      "spaghetti_image2.jpg"
+    ],
+    "category": "Italien",
+    "__v": 0
+  
+}
+
+###
+DELETE http://localhost:3000/recettes/recipes/:id
+Content-Type: application/json
+
+
+
+
+
+###
+ POST http://localhost:3000/recettes/ingredients
+Content-Type: application/json
+
+{
+  "name": "papye",
+  "type": "fruit",
+}
+
+###
+GET http://localhost:3000/recettes/ingredients
+Content-Type: application/json
+
+###
+GET http://localhost:3000/recettes/ingredients/657b7aee83de725011322be3
+Content-Type: application/json
+
+###
+PUT http://localhost:3000/recettes/ingredients/657b7aee83de725011322be3
+Content-Type: application/json
+
+{
+  "_id": "657b7aee83de725011322be3",
+  "name": "Spaghetti Barilla",
+  "type": "Céréales",
+  "__v": 0
+}
+
+###
+DELETE http://localhost:3000/recettes/ingredients/:id
+Content-Type: application/json
+
+
+
+###
+POST http://localhost:3000/recettes/signup
+Content-Type: application/json
+
+{
+  "name": "Sam Le pompier",
+  "password": "passwordfeufeu",
+  "email": "flamme@example.com"
+}
+
+###
+POST http://localhost:3000/recettes/signin
+Content-Type: application/json
+
+{
+  "name": "Sami Le pompier",
+  "password": "passwordfeufeu",
+  "email": "flamme@example.com"
+}
+
+
+###
+GET http://localhost:3000/recettes/users
+Content-Type: application/json
+
+###
+GET http://localhost:3000/recettes/users/657854b2c137d58bd4ffcb38
+Content-Type: application/json
+
+###
+PUT http://localhost:3000/recettes/users/657854b2c137d58bd4ffcb38
+Content-Type: application/json
+
+{
+  "_id": "657854b2c137d58bd4ffcb38",
+  "name": "Johnatan Dodo",
+  "password": "password123",
+  "email": "johndoe@example.com"
+}
+
+###
+DELETE http://localhost:3000/recettes/users/I57854b2c137d58bd4ffcb38
+
+
+###
+POST http://localhost:3000/recettes/comments
+Content-Type: application/json
+
+{
+  "user": "657854b2c137d58bd4ffcb38",
+  "recipe": "657b7aee83de725011322be3",
+  "text": "succulent !",
+  "rating": 5
+}
+
+
+###
+GET http://localhost:3000/recettes/comments
+Content-Type: application/json
+
+###
+GET http://localhost:3000/recettes/comments/657cc62be196e7c7cf75ae74
+Content-Type: application/json
+
+###
+PUT http://localhost:3000/recettes/comments/657cc62be196e7c7cf75ae74
+Content-Type: application/json
+
+{
+  "text": "Bon et facile",
+  "rating": 4
+}
+
+###
+DELETE http://localhost:3000/recettes/comments/657cc62be196e7c7cf75ae74
+Content-Type: application/json
+
+
+
+###
+POST http://localhost:3000/recettes/categories
+Content-Type: application/json
+
+{
+  "name": "Desserts",
+  "description": ""
+}
+
+###
+GET http://localhost:3000/recettes/categories
+Content-Type: application/json
+
+###
+GET http://localhost:3000/recettes/categories/657cd1d25883fd43e2b6c09e
+Content-Type: application/json
+
+###
+PUT http://localhost:3000/recettes/categories/657cd1d25883fd43e2b6c09e
+Content-Type: application/json
+
+{
+  "name": "New Desserts",
+  "description": "Even more delicious sweet treats"
+}
+
+###
+DELETE http://localhost:3000/recettes/categories/657cd1d25883fd43e2b6c09e
+Content-Type: application/json
+
+
+
+
+###
+POST http://localhost:3000/recettes/types
+Content-Type: application/json
+
+{
+  "name": "Céréales",
+  "description": ""
+}
+
+###
+GET http://localhost:3000/recettes/types
+Content-Type: application/json
+
+###
+GET http://localhost:3000/recettes/types/657cd1f95883fd43e2b6c0a3
+Content-Type: application/json
+
+###
+PUT http://localhost:3000/recettes/types/657cd1f95883fd43e2b6c0a3
+Content-Type: application/json
+
+{
+  "name": "Fresh Vegetables",
+  "description": ""
+}
+
+###
+DELETE http://localhost:3000/recettes/types/657cd1f95883fd43e2b6c0a3
+
+
+###
+# POST request to upload an image
+POST http://localhost:3000/recettes/images
+Content-Type: application/json
+
+{
+  "title": "Spagetti",
+  "filename": "spagetti.jpg",
+  "data": "{{base64Encode uploads/spagetti.jpg}}"
+}
+
+###
+# GET request to retrieve all images
+GET http://localhost:3000/recettes/images
+
+###
+# GET request to retrieve an image by its ID
+GET http://localhost:3000/recettes/images/657cdff67ebd3658632cb532
+
+###
+# PUT request to update an image by its ID
+PUT http://localhost:3000/recettes/images/657cdff67ebd3658632cb532
+Content-Type: application/json
+
+{
+   "title": "Spagetti bologese",
+  "filename": "spagetti.jpg",
+  "data": "{{base64Encode uploads/spagetti.jpg}}"
+}
+
+###
+# DELETE request to delete an image by its ID
+DELETE http://localhost:3000/recettes/images/657cdff67ebd3658632cb532
+
+
+###
+POST http://localhost:3000/recettes/signin
+Content-Type: application/json
+
+{
+  "password": "motdepasse",
+  "email": "billiejean@example.com"
+}

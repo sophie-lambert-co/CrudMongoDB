@@ -1,0 +1,125 @@
+/* Styles généraux pour la racine de l'application */
+#root {
+  max-width: 1280px; /* Largeur maximale de la racine */
+  margin: 0 auto; /* Centrage horizontal */
+  padding: 2rem; /* Espace autour du contenu */
+}
+
+/* Styles pour le logo */
+.logo {
+  height: 6em; /* Hauteur du logo */
+  padding: 1.5em; /* Espacement autour du logo */
+  will-change: filter; /* Améliore les performances des animations */
+  transition: filter 300ms; /* Transition du filtre */
+}
+
+/* Effet de survol sur le logo */
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa); /* Ombre portée au survol */
+}
+
+/* Effet de survol spécifique pour les logos React */
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa); /* Ombre portée au survol pour les logos React */
+}
+
+/* Animation de rotation du logo */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg); /* Rotation initiale */
+  }
+  to {
+    transform: rotate(360deg); /* Rotation complète */
+  }
+}
+
+/* Animation de rotation du logo uniquement si les préférences de mouvement ne sont pas réduites */
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear; /* Animation de rotation infinie */
+  }
+}
+
+/* Styles pour les cartes */
+.card {
+  padding: 2em; /* Espacement interne des cartes */
+}
+
+/* Style pour les liens de documentation */
+.read-the-docs {
+  color: #888; /* Couleur du texte pour les liens de documentation */
+}
+
+/* Styles adaptés pour Bootstrap */
+
+/* Styles spécifiques pour le formulaire de recette */
+.RecipeForm {
+  max-width: 600px; /* Largeur maximale du formulaire */
+  margin: auto; /* Centrage horizontal */
+  padding: 20px; /* Espacement interne du formulaire */
+  border: 1px solid #ced4da; /* Bordure */
+  border-radius: 0.25rem; /* Bordure arrondie */
+  background-color: #f8f9fa; /* Couleur de fond */
+}
+
+/* Styles pour les champs de formulaire */
+.RecipeForm input,
+.RecipeForm select,
+.RecipeForm textarea {
+  margin-bottom: 1rem; /* Espacement en bas de chaque champ */
+}
+
+/* Style pour les boutons du formulaire */
+.RecipeForm button {
+  margin-top: 1rem; /* Espacement en haut du bouton */
+}
+
+/* Style pour les champs de formulaire */
+.form-field {
+  margin-bottom: 1rem; /* Espacement en bas de chaque champ */
+}
+
+/* Classes Bootstrap spécifiques */
+
+/* Espacement en bas */
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
+
+/* Espacement en haut */
+.mt-3 {
+  margin-top: 1rem !important;
+}
+
+/* Espacement autour du bouton */
+.btn.btn-primary,
+.btn.btn-secondary {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+/* Espacement en bas pour les champs de formulaire */
+.input.form-control {
+  margin-bottom: 1rem;
+}
+
+/* Styles pour les titres */
+h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 2rem; /* Espacement en haut */
+  margin-bottom: 1.5rem; /* Espacement en bas */
+  font-weight: 500; /* Poids de la police */
+  line-height: 1.2; /* Hauteur de ligne */
+  color: var(--bs-heading-color); /* Couleur du texte */
+}

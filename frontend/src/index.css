@@ -1,0 +1,76 @@
+/* Réglages globaux */
+:root {
+  /* Police de caractères par défaut */
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5; /* Hauteur de ligne */
+  font-weight: 400; /* Poids de la police par défaut */
+
+  /* Schéma de couleurs */
+  color-scheme: light dark; /* Définit les schémas de couleurs */
+  color: rgba(255, 255, 255, 0.87); /* Couleur du texte */
+  background-color: #242424; /* Couleur de fond */
+
+  /* Améliorations de la lisibilité */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Styles pour les liens */
+a {
+  font-weight: 500; /* Poids de la police */
+  color: #646cff; /* Couleur du lien */
+  text-decoration: inherit; /* Décoration du texte du lien */
+}
+a:hover {
+  color: #535bf2; /* Couleur au survol du lien */
+}
+
+/* Styles pour le corps de la page */
+body {
+  margin: 0; /* Supprime les marges par défaut */
+  display: flex; /* Utilisation de Flexbox pour le positionnement */
+  place-items: center; /* Centre les éléments horizontalement et verticalement */
+  min-width: 320px; /* Largeur minimale */
+  min-height: 100vh; /* Hauteur minimale de la vue */
+}
+
+/* Styles pour les titres */
+h1 {
+  font-size: 3.2em; /* Taille de la police */
+  line-height: 1.1; /* Hauteur de ligne */
+}
+
+/* Styles pour les boutons */
+button {
+  border-radius: 8px; /* Bordure arrondie */
+  border: 1px solid transparent; /* Bordure transparente */
+  padding: 0.6em 1.2em; /* Rembourrage */
+  font-size: 1em; /* Taille de la police */
+  font-weight: 500; /* Poids de la police */
+  font-family: inherit; /* Utilisation de la police par défaut */
+  background-color: #1a1a1a; /* Couleur de fond */
+  cursor: pointer; /* Curseur au survol */
+  transition: border-color 0.25s; /* Transition de la couleur de la bordure */
+}
+button:hover {
+  border-color: #646cff; /* Couleur de la bordure au survol */
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color; /* Style de l'élément lorsqu'il est en focus */
+}
+
+/* Styles spécifiques pour le mode clair */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547; /* Couleur du texte */
+    background-color: #ffffff; /* Couleur de fond */
+  }
+  a:hover {
+    color: #747bff; /* Couleur au survol du lien */
+  }
+  button {
+    background-color: #f9f9f9; /* Couleur de fond du bouton */
+  }
+}

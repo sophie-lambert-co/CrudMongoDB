@@ -1,0 +1,230 @@
+# Je m'initie a la creation d'un CRUD via nodeJS & mongoDB
+
+## Node.js est un environnement d'exécution JavaScript côté serveur. Il utilise le moteur V8 de Google Chrome pour exécuter le code JavaScript. Node.js est largement utilisé pour créer des applications réseau évolutives
+
+## MongoDB est une base de données NoSQL, ce qui signifie qu'elle stocke les données sous forme de documents JSON (BSON, pour être précis) plutôt que dans des tables relationnelles comme les bases de données SQL
+
+## En Node.js, l'interaction avec MongoDB se fait généralement à l'aide d'un pilote, comme Mongoose. Mongoose est une bibliothèque ODM (Object-Document Mapping) qui facilite l'utilisation de MongoDB avec Node.js
+
+## Description
+
+Ce projet est un exercice back end sur lequel j'ai souhaité installer le front-end pour une application de gestion de recettes. Il permet aux utilisateurs de consulter des recettes, d'ajouter des recettes à leur collection, de rechercher des recettes par ingrédient, etc.
+La base de l'exercice etait de realiser un CRUD sur une BDD MongoDB.
+Malheureusement mon formateur se formait en même temps que nous ce qui a engendrer des erreurs dans la conception de la base de donnée MongoDB.
+
+Le front end n'est pas abouti, je voulais dans un premier temps installer le front-end pour voir comment cela fonctionne.
+
+Ce projet inlcut les fonctionnalités suivantes:
+
+- Connexion et inscription des utilisateurs avec authentification et autorisation. Mot de passe crypté
+- Affichage des recettes
+- Recherche de recettes par mot-clé
+- Création de recettes
+
+Les focntionalitées qui sont disponibles coté back-end sont les suivantes:
+
+- CRUD sur les recettes
+- CRUD sur les utilisateurs
+- CRUD sur les ingrédients
+- CRUD sur les catégories
+- CRUD sur les types d'ingrédients
+- CRUD sur les commentaires
+- CRUD sur les images
+- CRUD d'authentification et d'autorisation avec JWT et un middleware
+
+## Technologies utilisées
+
+Liste des technologies utilisées dans le projet :
+
+- Node.js
+- Express
+- MongoDB
+- Mongoose
+- Multer
+- Bcrypt
+- Jsonwebtoken
+- Dotenv
+- Cors
+- Nodemon
+
+
+## Etapes pour creer ce projet
+
+## Création du dossier CRUDRMONGODB
+
+## Création avec la commande npm init -y
+
+## Installation des dépendances
+
+- npm install express ( pour le serveur)
+- npm install mongoose ( pour la base de donnée)
+- npm install body-parser ( pour parser les requetes)
+- npm install bcrypt ( pour crypter les mots de passe)
+- npm install jsonwebtoken ( pour l'authentification)
+- npm install dotenv ( pour les variables d'environnement)
+- npm install cors ( pour les requetes entre serveurs)
+- npm install nodemon ( pour le serveur de développement)
+- npm install multer ( pour les images )
+
+
+### coté serveur
+
+#### je cree mes dossiers/fichiers
+
+- controllers (Contient des fichiers qui définissent la logique métier de l application. Ces fichiers peuvent contenir les fonctions du CRUD.)
+
+- middleware (Contient des fichiers qui définissent des middleware, des fonctions exécutées avant ou après certaines opérations de la base de données.) 
+
+- utils (Contient des fichiers utilitaires qui peuvent être utilisés pour remplir la base de données initialement ou pour d'autres tâches utilitaires.) Il faut lancé ce fichier pour lancer la base de donnée au début, ensuite il ne sert plus .
+
+- models (Contient les fichiers modèles (schémas) pour chaque collection. Chaque fichier modèle définit la structure des documents dans la collection correspondante.)
+
+- routes (pour organiser les fichiers de routage)
+
+- index.js ( Initialise l app'ication Express. C'est le point d'entrée principal de l application où je configure Express, je me connecte à la base de données, déclare des middleware, et définis les routes.
+javascript
+)
+
+- connectDB.js (Ce fichier peut être utilisé comme point d'entrée principal de votre application. Il peut être responsable de l'initialisation de la base de données et du démarrage du serveur)
+
+- requests.rest (ce fichier va contenir mes requetes , on peut aussi utiliser postman ou insomnia pour la même chose)
+
+### je verifie l'état du serveur MongoDB avec la commande
+
+- mongosh
+
+- show databases
+- use recettes
+
+### Pour le contenu des fichier voir commentaires en interne des fichier et docBloc
+
+## Pourquoi utiliser des modèles dans Mongoose ?
+
+- Les modèles sont des classes qui représentent la structure des documents dans une collection.
+- Ils sont utilisés pour interagir avec la collection.
+- Ils permettent de créer, lire, mettre à jour et supprimer des documents dans la collection.
+- Ils permettent de valider les données avant de les enregistrer dans la base de données.
+- Ils permettent de définir des méthodes statiques et des méthodes d'instance pour effectuer des opérations sur la collection.
+
+## convention pour les nommages
+
+- User.mjs ( fichier model)
+- User C'est le modèle mongoose défini dans le fichier "User.mjs".
+Il représente la structure des documents d'utilisateur dans la base de données MongoDB.
+Il est utilisé pour interagir avec la collection "users" dans la base de données.
+- Users // normalement pas vraiment utilisé
+- user un document de la collection users ( un utilisateur )
+- users C'est la collection dans la base de données MongoDB où les documents d'utilisateurs sont stockés.
+je l'ai créée en utilisant le modèle "User".
+Les opérations CRUD (Create, Read, Update, Delete) sont effectuées sur cette collection en utilisant les méthodes définies dans le modèle "User".
+
+## Pourquoi utiliser des noms de modèles et de collections au singulier ?
+
+- Les modèles et les collections sont des entités distinctes dans MongoDB.
+- Un modèle est une classe qui représente la structure des documents dans une collection.
+- Une collection est un ensemble de documents dans une base de données.
+- Les modèles sont utilisés pour interagir avec les collections.
+- Les modèles sont définis au singulier, tandis que les collections sont au pluriel.
+exemple dans ce pojet : User.mjs et users ( collection )
+
+La logique dans ma base de données Recettes aurait du être la suivante :
+Une collection "recettes" contient des documents de recettes.
+Un modèle "Recette" est utilisé pour interagir avec la collection "recettes".
+Dans ce modele on aurait pu avoir des champs comme : titre, description, ingrédients, instructions, image, etc.
+les types des ingredients auraient pu être un tableau de string, les instructions un tableau de string, l'image un string, etc.les documents de recettes auraient pu être des objets JSON avec des champs comme "titre", "description", "ingrédients", "instructions", "image", etc.
+C'est en ce sens que je me suis trompé dans la conception de ma base de donnée.
+J'ai cree une collection recettes avec un modele recette mais je n'ai pas mis les champs comme il fallait, j'ai construit une base de données NoSQL comme une base de données SQL.
+
+
+## Installation
+
+Pour installer le back-end, suivez les étapes suivantes:
+
+1. Clonez le dépôt
+2. Naviguez dans le répertoire du projet
+3. Installez les dépendances en exécutant la commande suivante:
+
+```bash
+
+npm install
+
+```
+
+4. Lancez le serveur de développement en exécutant la commande suivante:
+
+```bash
+
+node index.mjs
+
+```
+
+5. le serveur est lancé sur le port 3000
+
+## Utilisation
+
+Pour utiliser le back-end et faire des requêtes, suivez les étapes suivantes:
+
+1. Vous pouvez  utiliser le fichier requests.rest pour faire des requêtes directement depuis Visual Studio Code.
+2. Vous pouvez aussi utiliser Postman ou Insomnia pour faire des requêtes.
+3. Vous pouvez maintenant utiliser l'application pour gérer vos recettes.
+
+## API Endpoints
+
+Les endpoints suivants sont disponibles:
+
+POST /recettes/users
+GET /recettes/users
+GET /recettes/users/{id}
+PUT /recettes/users/{id}
+DELETE /recettes/users/{id}
+POST /recettes/recipes
+GET /recettes/recipes
+GET /recettes/recipes/search?term={term}
+GET /recettes/recipes/{id}
+PUT /recettes/recipes/{id}
+DELETE /recettes/recipes/{id}
+POST /recettes/ingredients
+GET /recettes/ingredients
+GET /recettes/ingredients/{id}
+PUT /recettes/ingredients/{id}
+DELETE /recettes/ingredients/{id}
+POST /recettes/signup
+POST /recettes/signin
+POST /recettes/comments
+GET /recettes/comments
+GET /recettes/comments/{id}
+PUT /recettes/comments/{id}
+DELETE /recettes/comments/{id}
+POST /recettes/categories
+GET /recettes/categories
+GET /recettes/categories/{id}
+PUT /recettes/categories/{id}
+DELETE /recettes/categories/{id}
+POST /recettes/types
+GET /recettes/types
+GET /recettes/types/{id}
+PUT /recettes/types/{id}
+DELETE /recettes/types/{id}
+POST /recettes/images
+GET /recettes/images
+GET /recettes/images/{id}
+PUT /recettes/images/{id}
+DELETE /recettes/images/{id}
+POST /signin
+GET /signout
+POST /signup
+Ces endpoints sont utilisés pour la connexion (signin), la déconnexion (signout) et l'inscription (signup) des utilisateurs. L'endpoint de déconnexion utilise un middleware pour authentifier le token.
+Notez que {id} et {term} sont des placeholders pour les valeurs réelles que vous utiliserez lors de l'appel de ces endpoints.
+
+## Les ameliorations possibles
+
+En restant dans le cadre de l'exercice, voici quelques améliorations possibles pour ce projet:
+
+- Ajouter des tests unitaires et des tests d'intégration pour les routes et les contrôleurs.
+- Ajouter des gestionnaires d'erreurs pour les erreurs de validation, les erreurs de base de données, etc.
+- Ajouter des fonctionnalités pour la gestion des images, des commentaires, des catégories, des types d'ingrédients, etc.
+- Ajouter des fonctionnalités pour la gestion des utilisateurs, des rôles, des autorisations, etc.
+- Ajouter des fonctionnalités pour la gestion des recettes, des ingrédients, des étapes, etc.
+- Ajouter des fonctionnalités pour la recherche, le tri, le filtrage, la pagination, etc.
+- Ajouter des fonctionnalités pour la gestion des sessions, la protection contre les attaques CSRF, etc.
+- Ajouter des fonctionnalités pour la gestion des erreurs 404, des erreurs 500, etc.
